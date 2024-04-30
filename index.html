@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <title>Escape The Island</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        canvas {
+            border: 1px solid #000;
+            display: none; 
+        }
+
+        #start-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(163, 182, 247);
+            color: black;
+            padding: 50px 80px; 
+            font-size: 40px; 
+            border: none;
+            cursor: pointer;
+            outline: auto;
+            outline-color:cadetblue;
+            border-radius: 25px; 
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 50px;
+        }
+        button:hover {
+            background-color: rgb(163, 182, 247);
+            color: black;
+        }
+    </style>
+</head>
+<body style="background-image: url(img/background.png); background-repeat: no-repeat; background-size: cover;">
+    
+    <button id="start-button">Oyunu Başlat</button>
+    <div style="display: inline-block; position: relative;">
+        <div id="overlappingID" style="background-color: white; top: 0;right: 0;bottom: 0;left: 0;position: absolute;opacity: 0;pointer-events: none;z-index: 10;"></div>
+        <div id="winID" style="background-color: white; top: 0;right: 0;bottom: 0;left: 0;position: absolute;opacity: 0;pointer-events: none;z-index: 10;"><h1 style="text-align: center;margin-top: 25%;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><b>Oyunu Kazandınız</b></h1></div>
+    <canvas></canvas>
+
+    <div id="UI">
+        <!-- Düşmanın can barı  -->
+        <div style="background-color: white; width:250px;position: absolute;left: 50px;top: 50px; border: black solid;">
+            <h1 style="text-align: left; font-size: 25px;font-family: 'Courier New', Courier, monospace;margin-left: 15px;">Slime</h1>
+            <div style="position: relative;">
+                <div style="height: 5px;background-color: #ccc;margin: 5px;"></div>
+                <div id="enemyhealthbar" style="height: 5px;background-color: green;position: absolute;top:0;left: 0;right: 0;margin-left: 5px;margin-right: 5px;"></div>
+            </div>
+        </div>
+        <!-- Oyuncunun can barı  -->
+                <div style="background-color: white; width:250px;position: absolute;left: 700px;top: 350px; border: black solid;">
+            <h1 style="text-align: left; font-size: 25px;font-family: 'Courier New', Courier, monospace;margin-left: 15px;">Player</h1>
+            <div style="position: relative;">
+                <div style="height: 5px;background-color: #ccc;margin: 5px;"></div>
+                <div id="playerhealthbar" style="height: 5px;background-color: green;position: absolute;top:0;left: 0;right: 0;margin-left: 5px;margin-right: 5px;"></div>
+            </div>
+        </div>
+
+        
+        <div style="position: absolute; background-color: white; left: 0; right: 0; height: 140px; bottom: 0; border: 4px black solid;display: grid; grid-template-columns: repeat(2, 1fr);">
+            <button style="width: 100%;">Atak</button>
+            <button style="width: 100%;">Kaç</button>
+        </div>
+    </div>
+        
+    </div>
+    <script src="winzone.js"></script>
+    <script src="animations.js"></script>
+    <script src="keyboardlistener.js"></script>
+    <script src="battlezones.js"></script>
+    <script src="collisions.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+    <script>
+        document.getElementById("start-button").addEventListener("click", function() {
+            document.getElementById("start-button").style.display = "none";
+            document.querySelector("canvas").style.display = "block";
+        });
+    </script>
+</body>
+</html>
+
+
